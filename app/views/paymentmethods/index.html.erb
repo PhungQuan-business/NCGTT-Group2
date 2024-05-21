@@ -1,0 +1,39 @@
+
+
+
+<div class="container mx-auto px-4">
+  <div class="flex items-center justify-between flex-wrap mb-6">
+    <h1 class="text-3xl font-bold">Paymentmethods</h1>
+
+    <%= link_to new_paymentmethod_path, class: button_class(theme: "primary") do %>
+    Add New Paymentmethod
+    <% end %>
+  </div>
+
+  <table class="table-auto border-collapse border-slate-400 w-full" style="background-color: #C3F0E9">
+    <thead class="bg-slate-50 dark:bg-slate-700">
+      <tr>
+      <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Method</th>
+
+                
+      <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Detail</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @paymentmethods.each do |paymentmethod| %>
+      <%= content_tag :tr, id: dom_id(paymentmethod), class: dom_class(paymentmethod) do %>
+      
+        <td class="border border-slate-300 dark:border-12B1BB-700 p-4 text-slate-500 dark:text-12B1BB-400"><%= paymentmethod.method %></td>
+              
+      
+      
+        <td class="border border-slate-300 dark:border-12B1BB-700 p-4 text-slate-500 dark:text-12B1BB-400"><%= link_to 'Show', paymentmethod %></td>
+      
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

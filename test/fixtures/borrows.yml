@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  studentid: 1
+  born: 2023-11-17
+  phone: 1
+  booklist: one
+  borrow_at: 2023-11-17
+  return_at: 2023-11-17
+
+two:
+  name: MyString
+  studentid: 1
+  born: 2023-11-17
+  phone: 1
+  booklist: two
+  borrow_at: 2023-11-17
+  return_at: 2023-11-17

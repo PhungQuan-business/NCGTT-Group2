@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orderid: 1
+  customer: one
+  product: one
+  orderdate: 2023-11-26 08:06:27
+  paymentmethod: one
+
+two:
+  orderid: 1
+  customer: two
+  product: two
+  orderdate: 2023-11-26 08:06:27
+  paymentmethod: two

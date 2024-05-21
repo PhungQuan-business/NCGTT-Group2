@@ -1,0 +1,28 @@
+<!-- app/views/payments/new.html.erb -->
+<h1>Thông tin thanh toán</h1>
+
+<%= form_for @payment, url: payments_path do |f| %>
+  <div>
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  </div>
+
+  <div>
+    <%= f.label :card_number %>
+    <%= f.text_field :card_number %>
+  </div>
+
+  <div>
+    <%= f.label :expiration_date %>
+    <%= f.text_field :expiration_date %>
+  </div>
+
+  <div>
+    <%= f.label :cvv %>
+    <%= f.text_field :cvv %>
+  </div>
+
+  <div>
+    <%= f.submit "Thanh toán" %>
+  </div>
+<% end %>

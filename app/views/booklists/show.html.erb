@@ -1,0 +1,45 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Booklist</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to booklists_path, class: button_class(theme: "transparent") do %>
+      All Booklists
+      <% end %>
+      <%= link_to edit_booklist_path(@booklist), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+      <p class="font-calibri text-red-500">Title:</p>
+      <p class="text-blue-700"><%= @booklist.tilte %></p>
+    </li>
+    <li>
+      <p class="font-semibold text-green-600">Author:</p>
+      <p class="text-purple-800"><%= @booklist.author %></p>
+    </li>
+    <li>
+      <p class="font-semibold text-orange-500">Publisher:</p>
+      <p class="text-indigo-700"><%= @booklist.publisher %></p>
+    </li>
+    <li>
+      <p class="font-semibold text-teal-600">Year:</p>
+      <p class="text-pink-700"><%= @booklist.year %></p>
+    </li>
+    <li>
+      <p class="font-semibold text-yellow-500">Available:</p>
+      <p class="text-gray-800"><%= @booklist.available %></p>
+    </li>
+    <li>
+      <p class="font-semibold text-cyan-600">Type:</p>
+      <p class="text-rose-700"><%= @booklist.type.name %></p>
+    </li>
+    <li>
+      <p class="font-semibold text-indigo-500">Bookid:</p>
+      <p class="text-yellow-700"><%= @booklist.bookid %></p>
+      </li>
+  </ul>
+</div>

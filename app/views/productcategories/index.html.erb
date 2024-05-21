@@ -1,0 +1,43 @@
+
+
+
+<div class="container mx-auto px-4">
+  <div class="flex items-center justify-between flex-wrap mb-6">
+    <h1 class="text-3xl font-bold">Productcategories</h1>
+
+    <%= link_to new_productcategory_path, class: button_class(theme: "primary") do %>
+    Add New Productcategory
+    <% end %>
+  </div>
+
+  
+  <table class="table-auto border-collapse border-slate-400 w-full" style="background-color: #C3F0E9">
+    <thead class="bg-blue-50 dark:bg-blue-700">
+      <tr>
+        
+      <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Name</th>
+
+
+        
+      <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Description</th>
+      
+      <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Detail</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @productcategories.each do |productcategory| %>
+      <%= content_tag :tr, id: dom_id(productcategory), class: dom_class(productcategory) do %>
+      
+       
+        <td class="border border-slate-300 dark:border-12B1BB-700 p-4 text-slate-500 dark:text-12B1BB-400"><%= link_to productcategory.name, productcategory %></td>
+        <td class="border border-slate-300 dark:border-12B1BB-700 p-4 text-slate-500 dark:text-12B1BB-400"><%= productcategory.description %></td>
+              
+        <td class="border border-slate-300 dark:border-12B1BB-700 p-4 text-slate-500 dark:text-12B1BB-400"><%= link_to 'Show', productcategory %></td>
+      
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

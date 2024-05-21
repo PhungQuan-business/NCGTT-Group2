@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Sử dụng Arial Rounded MT Bold với fallback font */
+    h1.center1 {
+      text-align: center;
+      font-size: 100px;
+      font-family: 'SignPainter', Arial, sans-serif;
+      color: #16b9b7;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: all 0.2s ease-in-out;
+    }
+
+    h1.center1 a {
+      text-decoration: none;
+      color: inherit; /* Kế thừa màu chữ từ phần tử cha (h1) */
+    }
+
+    h1.center1:hover {
+      transform: translate(2px, -2px);
+      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    h1.center1:active {
+      transform: translateY(1px);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <h1 class="center1">
+    <a href="/products">Book Management System</a>
+  </h1>
+</body>
+</html>
+
+
+
+<style>
+    .background-image {
+        background-image: url(https://bit.ly/4bNZ7mo);
+        background-size: cover;
+        height: 500px;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+    }
+
+    .background-image.loaded {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    window.addEventListener('load', function() {
+        var backgroundImage = document.querySelector('.background-image');
+        backgroundImage.style.width = "100%"; // Đặt chiều rộng là 100%
+        backgroundImage.style.height = "850px"; // Đặt chiều cao là 500px
+        backgroundImage.classList.add('loaded');
+    });
+</script>
+
+<div class="background-image"></div>
+
+
+
+
+</div>
+<style>
+.image-slider {
+  display: flex;
+}
+
+.image-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.image-slider img {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image-slider img.active {
+  opacity: 1;
+}
+
+</style>
+<script>
+    const images = document.querySelectorAll('.image-slider img');
+    let currentImage = 0;
+
+    function showNextImage() {
+      images[currentImage].classList.remove('active');
+      currentImage = (currentImage + 1) % images.length;
+      images[currentImage].classList.add('active');
+    }
+
+    setInterval(showNextImage, 3000); // Thay đổi hình ảnh sau mỗi 3 giây
+  </script>
+
