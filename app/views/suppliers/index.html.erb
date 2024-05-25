@@ -3,10 +3,10 @@
 
 <div class="container mx-auto px-4">
   <div class="flex items-center justify-between flex-wrap mb-6">
-    <h1 class="text-3xl font-bold">Suppliers</h1>
+    <h1 class="text-3xl font-bold">Publisher</h1>
 
     <%= link_to new_supplier_path, class: button_class(theme: "primary") do %>
-    Add New Supplier
+    Add New Publisher
     <% end %>
   </div>
 
@@ -18,10 +18,7 @@
               <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Address</th>
               <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Phone</th>
               <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Email</th>
-              <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Quantity</th>
 
-                 
-              <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left" style="background-color: #128ABB;">Detail</th>  
                 
       </tr>
     </thead>
@@ -36,7 +33,6 @@
               <td class="border border-slate-300 dark:border-12B1BB-700 p-4 text-slate-500 dark:text-12B1BB-400"><%= supplier.address %></td>
               <td class="border border-slate-300 dark:border-12B1BB-700 p-4 text-slate-500 dark:text-12B1BB-400"><%= supplier.phone %></td>
               <td class="border border-slate-300 dark:border-12B1BB-700 p-4 text-slate-500 dark:text-12B1BB-400"><%= supplier.email %></td>
-              <td class="border border-slate-300 dark:border-12B1BB-700 p-4 text-slate-500 dark:text-12B1BB-400"><%= supplier.quantity %></td>
       
 
                     

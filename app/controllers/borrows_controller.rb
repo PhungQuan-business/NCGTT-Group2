@@ -57,6 +57,13 @@ class BorrowsController < ApplicationController
     end
   end
 
+  def book_details
+    @book = Booklist.find(params[:booklist_id])
+    respond_to do |format|
+      format.json { render json: @book }
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_borrow

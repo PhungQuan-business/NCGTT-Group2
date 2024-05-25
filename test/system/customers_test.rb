@@ -12,14 +12,14 @@ class CustomersTest < ApplicationSystemTestCase
 
   test "should create customer" do
     visit customers_url
-    click_on "New customer"
+    click_on "New user"
 
     fill_in "Address", with: @customer.address
     fill_in "Customerid", with: @customer.customerid
     fill_in "Email", with: @customer.email
     fill_in "Name", with: @customer.name
     fill_in "Phone", with: @customer.phone
-    click_on "Create Customer"
+    click_on "Create User"
 
     assert_text "Customer was successfully created"
     click_on "Back"

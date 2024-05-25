@@ -1,40 +1,50 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'authors/index'
+  get 'authors/show'
+  get 'authors/new'
+  get 'authors/create'
+  get 'authors/edit'
+  get 'authors/update'
+  get 'authors/destroy'
   resources :orders
   resources :paymentmethods
   resources :customers
   resources :products
   resources :productcategories
   resources :suppliers
+  resources :library_s
+  resources :booklists
+  resources :types
+  resources :authors
+  resources :users, only: [:new, :create]
+  resources :borrows do
+    get 'book_details', on: :collection
+  end
+
   get 'sessions/new' 
   get 'sessions/create'
   get 'sessions/login'
   get 'sessions/welcome'
-  get 'users/new'
-  get 'users/create'
-  resources :borrows
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :library_s
-  get 'library/System'
-  get 'library/Management'
-  get 'library/home'
-  resources :booklists
-  resources :types
+
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
-  resources :users, only: [:new, :create]
-    get 'login', to: 'sessions#new'
-    post 'login', to: 'sessions#create'
-    get 'welcome', to: 'sessions#welcome'
-  resources :payments, only: [:new, :create]
   end
 
+  resources :users, only: [:new, :create]
+  get 'sign_up', to: 'devise/registrations#new'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'welcome', to: 'sessions#welcome'
+  resources :payments, only: [:new, :create]
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root to:'mingg#home'
+  root to: 'mingg#home'
 end
-

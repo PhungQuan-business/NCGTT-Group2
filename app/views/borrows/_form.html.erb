@@ -1,52 +1,54 @@
-<%= form_with(model: borrow) do |form| %>
-<% if borrow.errors.any? %>
-<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
-  <h2 class="text-lg font-semibold mb-3"><%= pluralize(borrow.errors.count, "error") %> prohibited this borrow from being saved:</h2>
+<script src="/assets/javascripts/borrows.js"></script>
+<%= form_with(model: borrow, local: true) do |form| %>
+  <% if borrow.errors.any? %>
+  <div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+    <h2 class="text-lg font-semibold mb-3"><%= pluralize(borrow.errors.count, "error") %> prohibited this borrow from being saved:</h2>
 
-  <ul class="list-disc leading-relaxed">
-    <% borrow.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
+    <ul class="list-disc leading-relaxed">
+      <% borrow.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="mb-6">
+    <%= form.label :name, class: label_class %>
+    <%= form.text_field :name, class: input_class %>
+  </div>
+  <div class="mb-6">
+    <%= form.label :userid, class: label_class %>
+    <%= form.number_field :studentid, class: input_class %>
+  </div>
+  <div class="mb-6">
+    <%= form.label :born, class: label_class %>
+    <%= form.date_field :born, class: input_class %>
+  </div>
+  <div class="mb-6">
+    <%= form.label :phone, class: label_class %>
+    <%= form.number_field :phone, class: input_class %>
+  </div>
+  <div class="mb-6">
+    <%= form.label :booklist_id, class: label_class %>
+    <%= form.select :booklist_id, options_from_collection_for_select(Booklist.all, 'id', 'tilte', selected: borrow.booklist_id), id: 'booklist_select', class: input_class %>
+  </div>
+  <div id="book-details" class="mb-6">
+    <!-- Additional book details will be displayed here -->
+  </div>
+  <div class="mb-6">
+    <%= form.label :borrow_at, class: label_class %>
+    <%= form.date_field :borrow_at, class: input_class %>
+  </div>
+  <div class="mb-6">
+    <%= form.label :return_at, class: label_class %>
+    <%= form.date_field :return_at, class: input_class %>
+  </div>
+  <%= form.submit class: button_class(theme: 'primary') %>
+  <% if borrow.persisted? %>
+    <%= link_to "Cancel", borrow, class: "text-neutral-700 underline inline-block ml-3" %>
+  <% else %>
+    <%= link_to "Cancel", borrows_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+  <% end %>
 <% end %>
 
-  <div class="mb-6">
-        <%= form.label :name, class: label_class %>
-          <%= form.text_field :name, class: input_class %>
-      </div>
-  <div class="mb-6">
-        <%= form.label :studentid, class: label_class %>
-          <%= form.number_field :studentid, class: input_class %>
-      </div>
-  <div class="mb-6">
-        <%= form.label :born, class: label_class %>
-          <%= form.date_field :born, class: input_class %>
-      </div>
-  <div class="mb-6">
-        <%= form.label :phone, class: label_class %>
-          <%= form.number_field :phone, class: input_class %>
-      </div>
-  <div class="mb-6">
-        <%= form.label :booklist_id, class: label_class %>
-        <%= form.select :booklist_id, options_from_collection_for_select( Booklist.all, 'id', 'tilte', selected = borrow.booklist_id), class: label_class %>
 
-      </div>
-  <div class="mb-6">
-        <%= form.label :borrow_at, class: label_class %>
-          <%= form.date_field :borrow_at, class: input_class %>
-      </div>
-  <div class="mb-6">
-        <%= form.label :return_at, class: label_class %>
-          <%= form.date_field :return_at, class: input_class %>
-      </div>
-   
-
-<%= form.submit class: button_class(theme: 'primary') %>
-
-<% if borrow.persisted? %>
-<%= link_to "Cancel", borrow, class: "text-neutral-700 underline inline-block ml-3" %>
-<% else %>
-<%= link_to "Cancel", borrows_path, class:  "text-neutral-700 underline inline-block ml-3" %>
-<% end %>
-<% end %>
