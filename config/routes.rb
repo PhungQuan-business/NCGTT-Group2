@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'authors/update'
   get 'authors/destroy'
   resources :orders
-  resources :paymentmethods
+  # resources :paymentmethods
   resources :customers
   resources :products
   resources :productcategories
@@ -18,10 +18,7 @@ Rails.application.routes.draw do
   resources :booklists
   resources :types
   resources :authors
-  resources :users, only: [:new, :create]
-  resources :borrows do
-    get 'book_details', on: :collection
-  end
+  resources :borrows
 
   get 'sessions/new' 
   get 'sessions/create'

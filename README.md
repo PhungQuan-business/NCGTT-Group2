@@ -1,6 +1,6 @@
 # README
 
-## GROUP 3
+## GROUP 2
 
 - Member 1: Nguyen Thi Huong Giang
 - Member 2: Tran Binh Nguyen
